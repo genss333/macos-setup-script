@@ -6,6 +6,7 @@ command_exists() {
 }
 
 # Install Homebrew
+# Install or Update Homebrew
 if command_exists brew; then
     echo "Checking Homebrew version..."
     HOMEBREW_VERSION=$(brew --version | head -n 1 | awk '{print $2}')
@@ -13,7 +14,8 @@ if command_exists brew; then
 
     if [[ "$HOMEBREW_VERSION" < "$REQUIRED_VERSION" ]]; then
         echo "Homebrew version $HOMEBREW_VERSION found but is outdated. Uninstalling..."
-        echo "Installing Homebrew..."
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+        echo "Reinstalling Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
         source ~/.zprofile
@@ -21,9 +23,10 @@ if command_exists brew; then
         echo "Homebrew version $HOMEBREW_VERSION is up to date."
     fi
 else
-    echo "Homebrew is setup not success"
-    echo "Uninstalling..."
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+    echo "Homebrew is not installed. Installing..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
+    source ~/.zprofile
 fi
 
 # Install Rosetta for Apple Silicon
