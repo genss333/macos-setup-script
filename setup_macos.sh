@@ -16,16 +16,27 @@ if command_exists brew; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
         echo "Reinstalling Homebrew..."
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-        source ~/.zprofile
+        echo 'eval "$($(brew --prefix)/bin/brew shellenv)"' >> ~/.zprofile
     else
         echo "Homebrew version $HOMEBREW_VERSION is up to date."
     fi
 else
     echo "Homebrew is not installed. Installing..."
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
-    source ~/.zprofile
+    echo 'eval "$($(brew --prefix)/bin/brew shellenv)"' >> ~/.zprofile
+fi
+
+# Reload terminal session to ensure changes take effect
+source ~/.zprofile
+
+# Verify Homebrew setup
+if ! command_exists brew; then
+    echo "Homebrew setup failed. Uninstalling..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
+    exit 1
+else
+    echo "Homebrew setup succeeded. Please close and reopen your terminal to apply changes."
+    exit 0
 fi
 
 # Install Rosetta for Apple Silicon
@@ -44,7 +55,7 @@ else
     echo "Flutter is already installed via Homebrew."
 fi
 
-# Install Xcode
+# Install Xcode CLI
 if ! command_exists xcodebuild; then
     echo "Installing Xcode Command Line Tools..."
     xcode-select --install
@@ -54,7 +65,9 @@ else
 fi
 
 # Configure Xcode
+echo "Configuring xcode ..."
 sudo sh -c 'xcode-select -s /Applications/Xcode.app/Contents/Developer && xcodebuild -runFirstLaunch'
+echo "Xcode license accept"
 sudo xcodebuild -license accept
 xcodebuild -downloadPlatform iOS
 
@@ -113,4 +126,4 @@ echo "Running Flutter doctor..."
 flutter doctor -v
 
 # Completion message
-echo "Setup is complete. Please ensure you configure Android Studio and Xcode properly for Flutter development."
+echo "Setup is complete. for Flutter development."
