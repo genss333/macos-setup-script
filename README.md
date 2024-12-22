@@ -1,6 +1,6 @@
 # macOS Development Setup Script
 
-This guide explains how to use the provided Bash script to set up a development environment on macOS. The script automates the installation of essential tools like Homebrew, Flutter, Xcode, Android Studio, Node.js, and other dependencies.
+This guide explains how to use the provided Bash script to set up a development environment on macOS. The script automates the installation of essential tools like Homebrew, Flutter, Xcode, Android Studio, Node.js, Git, Github Desktop, Vscode, and other dependencies.
 
 ## Prerequisites
 
