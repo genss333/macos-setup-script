@@ -5,7 +5,6 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
-# Install Homebrew
 # Install or Update Homebrew
 if command_exists brew; then
     echo "Checking Homebrew version..."
