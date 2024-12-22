@@ -71,6 +71,30 @@ else
     echo "Node.js is already installed."
 fi
 
+# Install Git
+if ! command_exists git; then
+    echo "Installing Git..."
+    brew install git
+else
+    echo "Git is already installed."
+fi
+
+# Install GitHub Desktop
+if ! command_exists github; then
+    echo "Installing GitHub Desktop..."
+    brew install --cask github
+else
+    echo "GitHub Desktop is already installed."
+fi
+
+# Install Visual Studio Code
+if ! command_exists code; then
+    echo "Installing Visual Studio Code..."
+    brew install --cask visual-studio-code
+else
+    echo "Visual Studio Code is already installed."
+fi
+
 # Run Flutter doctor
 echo "Running Flutter doctor..."
 flutter doctor -v
