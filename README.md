@@ -1,6 +1,6 @@
 # macOS Development Setup Script
 
-This guide explains how to use the provided Bash script to set up a development environment on macOS. The script automates the installation of essential tools like Homebrew, Flutter, Xcode, Android Studio, Node.js, Git, Github Desktop, Vscode, and other dependencies.
+This guide explains how to use the provided Bash script to set up a development environment on macOS. The script automates the installation of essential tools like Homebrew, Flutter, Xcode, Android Studio, Git, GitHub Desktop, Visual Studio Code, Node.js, and other dependencies.
 
 ## Prerequisites
 
@@ -17,7 +17,10 @@ This guide explains how to use the provided Bash script to set up a development 
 5. Installs **CocoaPods** for managing iOS dependencies.
 6. Installs **Android Studio** for Android development.
 7. Installs **Node.js** for JavaScript development.
-8. Runs `flutter doctor -v` to validate the setup.
+8. Installs **Git** for version control.
+9. Installs **GitHub Desktop** for GUI-based Git management.
+10. Installs **Visual Studio Code** for code editing.
+11. Runs `flutter doctor -v` to validate the setup.
 
 ## Usage
 
@@ -62,8 +65,17 @@ This guide explains how to use the provided Bash script to set up a development 
 7. **Node.js Installation**:
    - Installs Node.js using Homebrew.
 
-8. **Flutter Doctor**:
-   - Validates the setup by running `flutter doctor -v`.
+8. **Git Installation**:
+   - Installs Git for version control.
+
+9. **GitHub Desktop Installation**:
+   - Installs GitHub Desktop for GUI-based Git management.
+
+10. **Visual Studio Code Installation**:
+    - Installs Visual Studio Code for code editing and development.
+
+11. **Flutter Doctor**:
+    - Validates the setup by running `flutter doctor -v`.
 
 ## Notes
 
@@ -89,5 +101,3 @@ This guide explains how to use the provided Bash script to set up a development 
 Once the script completes successfully, your macOS development environment will be set up and ready for Flutter, iOS, and Android development.
 
 Enjoy coding!
-
-# macos-setup-script
