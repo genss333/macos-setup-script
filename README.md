@@ -6,7 +6,7 @@ This guide explains how to use the provided Bash script to set up a development 
 
 - Ensure you have administrative privileges on your macOS system.
 - A stable internet connection is required to download the tools.
-- Login to your Apple ID before running the script if you need to install Xcode from the App Store.
+- Login to your Apple ID and install Xcode from the App Store before running the script.
 
 ## Features
 
