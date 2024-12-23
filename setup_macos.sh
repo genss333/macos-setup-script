@@ -68,6 +68,7 @@ if [ -d "/Applications/Xcode.app" ]; then
         echo "Xcode license accept"
         sudo xcodebuild -license accept
         xcodebuild -downloadPlatform iOS
+        brew install ideviceinstaller
     else
         echo "Xcode Command Line Tools are already installed."
     fi
@@ -91,6 +92,8 @@ fi
 if ! command_exists studio; then
     echo "Installing Android Studio..."
     brew install --cask android-studio
+    echo 'export ANDROID_HOME=~/Library/Android/sdk' >> ~/.zprofile
+    echo 'export PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"' >> ~/.zprofile
 else
     echo "Android Studio is already installed."
 fi
