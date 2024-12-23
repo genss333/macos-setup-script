@@ -53,21 +53,31 @@ else
     echo "Flutter is already installed via Homebrew."
 fi
 
-# Install Xcode CLI
-if ! command_exists xcodebuild; then
-    echo "Installing Xcode Command Line Tools..."
-    xcode-select --install
-    echo "Please install Xcode from the App Store and open it once to accept the license agreement."
+# Check if Xcode App is installed
+if [ -d "/Applications/Xcode.app" ]; then
+    echo "Xcode is installed."
+
+    # Install Xcode CLI
+    if ! command_exists xcodebuild; then
+        echo "Installing Xcode Command Line Tools..."
+        xcode-select --install
+        echo "Please install Xcode from the App Store and open it once to accept the license agreement."
+         # Configure Xcode
+        echo "Configuring xcode ..."
+        sudo sh -c 'xcode-select -s /Applications/Xcode.app/Contents/Developer && xcodebuild -runFirstLaunch'
+        echo "Xcode license accept"
+        sudo xcodebuild -license accept
+        xcodebuild -downloadPlatform iOS
+    else
+        echo "Xcode Command Line Tools are already installed."
+    fi
+
 else
-    echo "Xcode Command Line Tools are already installed."
+    echo "Xcode is not installed. Please install Xcode from the App Store."
+    exit 1
 fi
 
-# Configure Xcode
-echo "Configuring xcode ..."
-sudo sh -c 'xcode-select -s /Applications/Xcode.app/Contents/Developer && xcodebuild -runFirstLaunch'
-echo "Xcode license accept"
-sudo xcodebuild -license accept
-xcodebuild -downloadPlatform iOS
+
 
 # Install CocoaPods
 if ! command_exists pod; then
@@ -117,6 +127,14 @@ if ! command_exists code; then
     brew install --cask visual-studio-code
 else
     echo "Visual Studio Code is already installed."
+fi
+
+# Install postman
+if ! command_exists postman; then
+    echo "Installing Postman..."
+    brew install --cask postman
+else
+    echo "Postman is already installed."
 fi
 
 # Run Flutter doctor
