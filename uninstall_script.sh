@@ -47,7 +47,10 @@ fi
 # Uninstall Node.js
 if command_exists node; then
     echo "Uninstalling Node.js..."
-    brew uninstall node
+    brew uninstall node; 
+    brew cleanup;
+    rm -f /usr/local/bin/npm /usr/local/lib/dtrace/node.d;
+    rm -rf ~/.npm;
 else
     echo "Node.js is not installed. Skipping."
 fi
