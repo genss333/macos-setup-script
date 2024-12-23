@@ -77,8 +77,6 @@ else
     exit 1
 fi
 
-
-
 # Install CocoaPods
 if ! command_exists pod; then
     echo "Installing CocoaPods..."
