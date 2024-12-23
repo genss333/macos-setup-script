@@ -109,6 +109,10 @@ fi
 if ! command_exists git; then
     echo "Installing Git..."
     brew install git
+    source ~/.zprofile
+    echo "Configuring Git..."
+    git global config --global user.email "Your Email"
+    git global config --global user.name "Your Name"
 else
     echo "Git is already installed."
 fi
