@@ -102,6 +102,10 @@ fi
 if ! command_exists node; then
     echo "Installing Node.js..."
     brew install node
+    
+    # Install QuickType
+    echo "Installing QuickType..."
+    npm install -g quicktype
 else
     echo "Node.js is already installed."
 fi
