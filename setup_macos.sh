@@ -145,6 +145,14 @@ else
     echo "Postman is already installed."
 fi
 
+# Install Chrome
+if ! command_exists google-chrome; then
+    echo "Installing Google Chrome..."
+    brew install --cask google-chrome
+else
+    echo "Google Chrome is already installed."
+fi
+
 # Run Flutter doctor
 echo "Running Flutter doctor..."
 flutter doctor -v
