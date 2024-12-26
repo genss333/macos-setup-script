@@ -106,14 +106,17 @@ else
     echo "Node.js is already installed."
 fi
 
+GIT_EMAIL="tussuya423t@gmail.com"
+GIT_NAME="genss333"
+
 # Install Git
 if ! command_exists git; then
     echo "Installing Git..."
     brew install git
     source ~/.zprofile
     echo "Configuring Git..."
-    git global config --global user.email "Your Email"
-    git global config --global user.name "Your Name"
+    git global config --global user.email "$GIT_EMAIL"
+    git global config --global user.name "$GIT_NAME"
 else
     echo "Git is already installed."
 fi
