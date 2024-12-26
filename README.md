@@ -21,7 +21,8 @@ This guide explains how to use the provided Bash script to set up a development 
 9. Installs **GitHub Desktop** for GUI-based Git management.
 10. Installs **Visual Studio Code** for code editing.
 11. Installs **Postman** for Test API
-12. Runs `flutter doctor -v` to validate the setup.
+12. Installs **Google Chrome** for flutter web development
+13. Runs `flutter doctor -v` to validate the setup.
 
 ## Usage
 
@@ -78,7 +79,10 @@ This guide explains how to use the provided Bash script to set up a development 
 11. **Postman Installation**
     - Installs Postman for Test API
 
-12. **Flutter Doctor**:
+12. **Chrome Installation**
+    - for flutter web development
+
+13. **Flutter Doctor**:
     - Validates the setup by running `flutter doctor -v`.
 
 ## Notes
