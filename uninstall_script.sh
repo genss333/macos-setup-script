@@ -79,6 +79,22 @@ else
     echo "Visual Studio Code is not installed. Skipping."
 fi
 
+# Uninstall Postman
+if command_exists postman; then
+    echo "Uninstalling Postman..."
+    brew uninstall --cask postman
+else
+    echo "Postman is not installed. Skipping."
+fi
+
+# Uninstall Chrome
+if command_exists google-chrome; then
+    echo "Uninstalling Chrome..."
+    brew uninstall --cask google-chrome
+else
+    echo "Chrome is not installed. Skipping."
+fi
+
 # Uninstall Homebrew
 if command_exists brew; then
     echo "Uninstalling Homebrew..."
